@@ -1,0 +1,171 @@
+:root {
+    --primary-blue: #282E68;
+    --accent-gold: #F6AC44;
+    --bg-white: #FFFFFF;
+    --card-bg: #F8F9FB;
+    --text-dark: #1A1A1A;
+    --text-muted: #666666;
+    --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Tajawal', sans-serif; }
+body { background-color: var(--bg-white); color: var(--text-dark); line-height: 1.6; overflow-x: hidden; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+.text-center { text-align: center; }
+.mt-4 { margin-top: 2rem; }
+.text-muted { color: var(--text-muted); }
+.bg-light { background-color: var(--card-bg); }
+.bg-dark { background-color: var(--primary-blue); }
+.icon-accent { color: var(--accent-gold); font-size: 2rem; margin-bottom: 1rem; }
+
+/* Buttons */
+.btn { display: inline-block; padding: 12px 28px; border-radius: 4px; text-decoration: none; font-weight: 700; transition: var(--transition); cursor: pointer; border: none; }
+.btn-primary { background: var(--primary-blue); color: var(--bg-white); }
+.btn-primary:hover { background: #1a1e45; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(40,46,104,0.2); }
+.btn-secondary { background: transparent; color: var(--bg-white); border: 2px solid var(--bg-white); }
+.btn-secondary:hover { background: var(--bg-white); color: var(--primary-blue); }
+.btn-accent { background: var(--accent-gold); color: var(--primary-blue); }
+.btn-accent:hover { background: #e09935; transform: translateY(-3px); }
+
+/* Header */
+.navbar { position: fixed; width: 100%; top: 0; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+.nav-container { display: flex; justify-content: space-between; align-items: center; height: 80px; }
+.logo { font-size: 1.8rem; font-weight: 800; color: var(--primary-blue); letter-spacing: 2px;}
+
+/* Hero */
+.hero { height: 100vh; background: linear-gradient(rgba(26,26,26,0.8), rgba(40,46,104,0.9)), url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') center/cover; display: flex; align-items: center; text-align: center; color: white; position: relative; }
+.hero h1 { font-size: 3.5rem; margin-bottom: 20px; line-height: 1.3; }
+.hero .accent-text { color: var(--accent-gold); }
+.hero p { font-size: 1.2rem; max-width: 700px; margin: 0 auto 40px; color: #ddd; }
+.hero-buttons { display: flex; gap: 15px; justify-content: center; }
+
+/* Sections */
+section { padding: 100px 0; }
+.grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+.grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+/* شبكة عرض 5 كروت بجانب بعضها */
+.grid-5 {
+    display: grid;
+    /* تقسيم المساحة إلى 5 أعمدة متساوية */
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px; /* تقليل المسافة قليلاً لتتسع الكروت بشكل أنيق */
+}
+
+/* تعديل المسافات الداخلية للكروت في هذه الشبكة لتناسب العرض الجديد */
+.grid-5 .premium-card {
+    padding: 30px 15px; 
+}
+.grid-5 .premium-card h3 {
+    font-size: 1.2rem;
+}
+
+/* Cards */
+.premium-card { background: var(--bg-white); padding: 40px 30px; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); transition: var(--transition); border-top: 4px solid transparent; position: relative;}
+.premium-card:hover { transform: translateY(-10px); border-top-color: var(--accent-gold); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
+.premium-card h3 { color: var(--primary-blue); margin-bottom: 15px; font-size: 1.4rem; }
+
+/* Highlight Card */
+.premium-card.highlight { border-top-color: var(--primary-blue); transform: scale(1.05); }
+.premium-card.highlight:hover { transform: scale(1.05) translateY(-10px); }
+.badge { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--accent-gold); color: var(--primary-blue); padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 0.9rem; }
+.package-list { list-style: none; margin-top: 20px; text-align: right; }
+.package-list li { margin-bottom: 10px; color: var(--text-muted); }
+.package-list i { color: var(--primary-blue); margin-left: 10px; font-size: 0.9rem; }
+
+/* Chaos Animation Section */
+.chaos-section { background: var(--bg-white); overflow: hidden; }
+.floating-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin: 40px 0; min-height: 200px; position: relative; transition: var(--transition); }
+.float-item { 
+    background: var(--card-bg); 
+    padding: 10px 20px; 
+    border-radius: 30px; 
+    color: var(--primary-blue); 
+    font-weight: 500; 
+    border: 1px solid #eee; 
+    /* تم إبطاء الحركة لتصبح 3 ثانية بدلاً من 1 ثانية */
+    transition: all 3s cubic-bezier(0.25, 0.8, 0.25, 1); 
+    opacity: 1; 
+}
+/* بطاقة OMNI التي تظهر بعد الاندماج */
+.omni-unified-card { 
+    opacity: 0; 
+    transform: scale(0.8); 
+    background: white; 
+    color: var(--primary-blue); 
+    padding: 40px; 
+    border-radius: 12px; 
+    max-width: 400px; 
+    margin: 0 auto; 
+    /* تم تأخير ظهور البطاقة 0.5 ثانية لتتناسب مع اختفاء الأيقونات */
+    transition: all 1.5s ease 0.5s; 
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    margin-left: -200px; 
+    margin-top: -60px; 
+    width: 400px; 
+    display: none; 
+}
+.omni-unified-card h3 { color: var(--accent-gold); font-size: 2rem; margin-bottom: 10px; }
+
+/* States for JS Animation */
+/* شكل الأيقونات عند الاختفاء والاندماج */
+.chaos-active .float-item { 
+    opacity: 0; 
+    /* سحب العناصر نحو المنتصف وتصغيرها ببطء لتبدو وكأنها تندمج */
+    transform: scale(0.2) translate(0, 50px) !important; 
+}
+.chaos-active .omni-unified-card { display: block; opacity: 1; transform: scale(1); position: relative; top: auto; left: auto; margin: 0 auto; }
+.chaos-active .floating-container { min-height: 0; margin: 0;}
+
+/* Accordion */
+.accordion-container { max-width: 800px; margin: 0 auto; }
+.accordion { background: var(--bg-white); margin-bottom: 15px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); overflow: hidden; }
+.accordion-header { padding: 20px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-weight: 700; color: var(--primary-blue); transition: var(--transition); }
+.accordion-header:hover { background: var(--card-bg); }
+/* تأكيد إخفاء محتوى القائمة المنسدلة بشكل كامل */
+.accordion-body { 
+    padding: 0 20px; 
+    max-height: 0px; 
+    overflow: hidden; 
+    transition: all 0.4s ease-out; 
+    color: var(--text-muted); 
+}
+/* Portfolio */
+.portfolio-card { background: var(--bg-white); border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+.portfolio-img { height: 200px; }
+.portfolio-info { padding: 25px; }
+
+/* Final CTA & Footer */
+.final-cta { background: var(--primary-blue); color: white; }
+footer { background: white; color: #151836; padding: 60px 0 30px; }
+
+/* Scroll Animations */
+.fade-up { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+.delay-1 { transition-delay: 0.2s; }
+.delay-2 { transition-delay: 0.4s; }
+.delay-3 { transition-delay: 0.6s; }
+
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.2rem; }
+    .hero-buttons { flex-direction: column; }
+    .premium-card.highlight { transform: none; }
+    .premium-card.highlight:hover { transform: translateY(-5px); }
+    .omni-unified-card { width: 90%; margin-left: -45%; }
+}
+
+@media (max-width: 1200px) {
+    /* على شاشات اللابتوب المتوسطة والآيباد نعرض 3 كروت ثم 2 */
+    .grid-5 {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    /* على الجوال نعرض كرت واحد في كل صف */
+    .grid-5 {
+        grid-template-columns: 1fr;
+    }
+}
